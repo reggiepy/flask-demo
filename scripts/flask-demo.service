@@ -1,0 +1,14 @@
+[Unit]
+Description=flask-demo
+After=
+
+[Service]
+Type=forking
+ExecStart=/bin/sh /opt/flask-demo/scripts/run.sh
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=always
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
